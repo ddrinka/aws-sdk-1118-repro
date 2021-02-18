@@ -1,4 +1,5 @@
-﻿using Amazon.S3;
+﻿using Amazon;
+using Amazon.S3;
 using System;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace aws_sdk_1118_repro
     {
         async static Task Main(string[] args)
         {
-            var s3Client = new AmazonS3Client();
+            var s3Client = new AmazonS3Client(RegionEndpoint.USEast1);
             await s3Client.ListBucketsAsync();
             Console.WriteLine("Success");
         }
