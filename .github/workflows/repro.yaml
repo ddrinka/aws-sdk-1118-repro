@@ -1,0 +1,14 @@
+name: Repro
+on: [push]
+jobs:
+  repro:
+    runs-on: ubuntu-18.04
+    env:
+      DOTNET_NOLOGO: true
+
+    steps:
+      - uses: actions/checkout@main
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+      - run: dotnet run
